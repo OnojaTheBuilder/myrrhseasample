@@ -29,15 +29,25 @@ const isHomePage = document.body.classList.contains('home');
 
   function onScroll() {
     const s = window.scrollY;
+
     if (!isHomePage) {
-      // Non-home pages — header always solid white
+      // Shop, Contact — header always solid white, ann bar always visible
       hdr.classList.add('solid');
     } else {
-      // Home page — transparent over hero, white on scroll
+      // Home — transparent over hero, white on scroll
       s > 80 ? hdr.classList.add('solid') : hdr.classList.remove('solid');
+
+      // Ann bar — hide on scroll down, show at top
+      if (s > 10) {
+        ann.style.transform = 'translateY(-100%)';
+        ann.style.transition = 'transform 0.3s ease';
+        hdr.style.top = '0';
+      } else {
+        ann.style.transform = 'translateY(0)';
+        hdr.style.top = ANN_H + 'px';
+      }
     }
-    if (s > ANN_H + 10 && s > prev) hdr.classList.add('rise');
-    else if (s < prev) hdr.classList.remove('rise');
+
     prev = s;
   }
 
