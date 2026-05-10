@@ -25,9 +25,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const ANN_H = ann ? ann.offsetHeight : 40;
   let prev = 0;
 
+const isHomePage = document.body.classList.contains('home');
+
   function onScroll() {
     const s = window.scrollY;
-    s > 80 ? hdr.classList.add('solid') : hdr.classList.remove('solid');
+    if (!isHomePage) {
+      // Non-home pages — header always solid white
+      hdr.classList.add('solid');
+    } else {
+      // Home page — transparent over hero, white on scroll
+      s > 80 ? hdr.classList.add('solid') : hdr.classList.remove('solid');
+    }
     if (s > ANN_H + 10 && s > prev) hdr.classList.add('rise');
     else if (s < prev) hdr.classList.remove('rise');
     prev = s;
