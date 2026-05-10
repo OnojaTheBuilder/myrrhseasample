@@ -885,3 +885,11 @@ body.page-shop #hdr .h-ham span,
 body.page-contact #hdr .h-ham span {
   background: #111 !important;
 }
+/* ── HIDE ANN BAR on Shop & Contact ── */
+body:not(.home) .ann {
+  display: none !important;
+}
+
+body:not(.home) #hdr {
+  top: 0 !important;
+}
