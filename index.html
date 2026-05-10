@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Myrrh Sea Mercantile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─── EXACT match to myrrh-sea-v4 theme + Gallery Dept sizing ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#111;font-family:'Jost','Helvetica Neue',Arial,sans-serif;font-weight:400;font-size:16px;line-height:1.5;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+/* ── ANN BAR ── */
+.ann{position:fixed;top:0;left:0;right:0;height:40px;background:#000;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem}
+.ann-btn{color:rgba(255,255,255,0.45);font-size:1.2rem;line-height:1;padding:0 0.4rem;background:none;border:none;cursor:pointer;transition:color 0.2s}
+.ann-btn:hover{color:#fff}
+.ann-body{flex:1;text-align:center;position:relative;height:40px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ann-msg{position:absolute;width:100%;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:#fff;opacity:0;transform:translateY(8px);transition:opacity 0.4s,transform 0.4s;pointer-events:none;white-space:nowrap}
+.ann-msg.on{opacity:1;transform:translateY(0);pointer-events:auto}
+
+/* ── HEADER ── */
+#hdr{position:fixed;top:40px;left:0;right:0;height:68px;z-index:999;background:transparent;border-bottom:1px solid rgba(255,255,255,0.18);transition:background 0.3s ease,border-color 0.3s ease,top 0.3s ease}
+#hdr.solid{background:#fff;border-bottom:1px solid #e5e5e5}
+#hdr.rise{top:0}
+.hdr-g{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:100%;max-width:1440px;margin:0 auto;padding:0 2rem}
+.hn-l{display:flex;align-items:center;gap:2.2rem}
+.hn-l a{font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.9);transition:color 0.3s,opacity 0.2s;position:relative}
+.hn-l a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:currentColor;transition:width 0.25s}
+.hn-l a:hover::after,.hn-l a.active::after{width:100%}
+.hn-l a:hover{opacity:0.6}
+#hdr.solid .hn-l a{color:#111}
+#hdr.solid .hn-r a{color:#111}
+#hdr.solid .hn-r svg{stroke:#111}
+#hdr.solid .h-ham span{background:#111}
+.hn-c{display:flex;justify-content:center;align-items:center}
+.hn-c img{height:56px;width:auto;max-width:240px;object-fit:contain;mix-blend-mode:multiply}
+.hn-r{display:flex;align-items:center;justify-content:flex-end;gap:1.5rem}
+.hn-r a{font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.9);display:flex;align-items:center;gap:0.35rem;transition:color 0.3s,opacity 0.2s}
+.hn-r a:hover{opacity:0.6}
+.hn-r svg{stroke:rgba(255,255,255,0.9);transition:stroke 0.3s}
+.h-ham{display:none;flex-direction:column;gap:5px;padding:4px}
+.h-ham span{display:block;width:20px;height:1px;background:rgba(255,255,255,0.9);transition:background 0.3s}
+.mob{display:none;position:fixed;inset:0;background:#fff;z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mob.open{display:flex}
+.mob a{font-family:'Courier New',Courier,monospace;font-size:1.6rem;letter-spacing:0.08em;text-transform:uppercase;color:#111}
+.mob-x{position:absolute;top:1.2rem;right:1.5rem;font-size:1.5rem;color:#888;background:none;border:none;cursor:pointer}
+
+/* ── HERO ── */
+.hero{width:100%;overflow:hidden}
+.hero img{width:100%;height:100vh;min-height:600px;object-fit:cover;object-position:center center;display:block}
+
+/* ── SECTION HEAD — Gallery Dept "DÉPT." style ── */
+.s-head{text-align:center;padding:80px 2rem 40px;border-bottom:1px solid #e5e5e5}
+.s-title{font-family:'Courier New',Courier,monospace;font-size:16px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#111;margin-bottom:12px}
+.s-va{display:inline-block;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#111;text-decoration:underline;text-underline-offset:4px;opacity:0.4;transition:opacity 0.2s}
+.s-va:hover{opacity:1}
+
+/* ── PRODUCT GRID — 3 col, white bg, Gallery Dept spacing ── */
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);column-gap:80px;row-gap:0;background:#fff;padding:60px 4rem 0}
+
+/* ── PRODUCT CARD ── */
+.pc{background:transparent;position:relative;cursor:pointer;padding-bottom:80px}
+.pc-img{position:relative;overflow:hidden;background:transparent;aspect-ratio:3/4}
+.pc-img img,.pc-img svg{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.5s ease;display:block}
+.pc:hover .pc-img img,.pc:hover .pc-img svg{transform:scale(1.03)}
+.pc-plus{position:absolute;top:0.8rem;right:0.8rem;width:28px;height:28px;border:1px solid #bbb;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:300;color:#111;opacity:0;transition:opacity 0.2s;cursor:pointer}
+.pc:hover .pc-plus{opacity:1}
+.pc-sizes{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,0.96);padding:0.6rem;display:flex;gap:4px;flex-wrap:wrap;justify-content:center;opacity:0;transform:translateY(4px);transition:opacity 0.25s,transform 0.25s}
+.pc:hover .pc-sizes{opacity:1;transform:translateY(0)}
+.pc-sz{font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;border:1px solid #111;border-radius:0;padding:4px 8px;color:#111;background:#fff;cursor:pointer;transition:all 0.15s}
+.pc-sz:hover{background:#111;color:#fff}
+.pc-info{padding:1.5rem 0 0}
+.pc-name{font-family:'Courier New',Courier,monospace;font-size:13px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:#111;margin-bottom:0.3rem;line-height:1.4}
+.pc-price{font-family:'Courier New',Courier,monospace;font-size:13px;color:#888;letter-spacing:0.06em}
+.pc-swatches{display:flex;gap:4px;margin-top:0.5rem}
+.sw{width:12px;height:12px;border-radius:50%;border:1px solid #ddd;cursor:pointer;transition:transform 0.2s}
+.sw:hover{transform:scale(1.35)}
+
+/* ── EDITORIAL STRIP ── */
+.strip-wrap{overflow:hidden;border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;margin-top:200px}
+.strip-head{text-align:center;padding:60px 2rem 40px;border-bottom:1px solid #e5e5e5}
+.strip-head h2{font-family:'Courier New',Courier,monospace;font-size:15px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#111;margin-bottom:8px}
+.strip-head p{font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#999}
+.strip-runner{display:flex;gap:20px;animation:stripScroll 45s linear infinite;width:max-content;padding:0 20px}
+.strip-runner:hover{animation-play-state:paused}
+@keyframes stripScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.strip-panel{flex-shrink:0;width:32vw;min-width:300px;height:80vh;min-height:520px;overflow:hidden;position:relative;background:#f2f2f2}
+.strip-panel img,.strip-panel svg{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.strip-overlay{position:absolute;bottom:0;left:0;right:0;padding:2rem;background:linear-gradient(transparent,rgba(0,0,0,0.55))}
+.strip-eye{font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:4px}
+.strip-name{font-family:'Courier New',Courier,monospace;font-size:14px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#fff}
+
+/* ── DISCOVER ── */
+.disc{padding:15vh 4rem 3rem;border-bottom:1px solid #e5e5e5}
+.disc-lbl{font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:6px;display:block}
+.disc-tabs{display:flex;margin-bottom:0.5rem}
+.d-tab{font-family:'Courier New',Courier,monospace;font-size:16px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;color:#111;opacity:0.28;cursor:pointer;padding:0;background:none;border:none}
+.d-tab.on{opacity:1}
+.d-tab:not(:last-child)::after{content:' / ';color:#ccc;font-weight:400}
+.disc-va{font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#111;text-decoration:underline;text-underline-offset:3px;opacity:0.38;display:block;margin-top:0.5rem;transition:opacity 0.2s}
+.disc-va:hover{opacity:1}
+
+/* ── H SCROLL CAROUSEL ── */
+.h-scroll{overflow-x:auto;cursor:grab;scrollbar-width:none;padding:0 4rem 100px;border-bottom:1px solid #e5e5e5}
+.h-scroll::-webkit-scrollbar{display:none}
+.h-scroll.drag{cursor:grabbing;user-select:none}
+.h-track{display:flex;gap:80px;width:max-content;background:transparent}
+.h-track .pc{width:380px;flex-shrink:0}
+
+/* ── CINEMATIC BANNER ── */
+.cin{position:relative;overflow:hidden;border-bottom:1px solid #e5e5e5;margin-top:0}
+.cin img{width:100%;height:85vh;object-fit:cover;object-position:center center;display:block}
+.cin-over{position:absolute;inset:0;background:rgba(0,0,0,0.4);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.cin-over p{font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1rem}
+.cin-over h2{font-size:clamp(2rem,5vw,4.5rem);font-weight:700;color:#fff;text-transform:uppercase;max-width:750px;line-height:1.05;letter-spacing:-0.01em}
+.cin-btn{margin-top:2.5rem;display:inline-block;font-family:'Courier New',Courier,monospace;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,0.55);border-radius:0;padding:1rem 3rem;transition:background 0.2s,color 0.2s}
+.cin-btn:hover{background:#fff;color:#111}
+
+/* ── FOOTER ── */
+#ft{background:#111;color:#fff;padding:60px 2rem 0}
+.ft-g{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;max-width:1440px;margin:0 auto 3rem}
+.ft-logo img{height:28px;margin-bottom:1rem;filter:brightness(0) invert(1)}
+.ft-logo p{font-family:'Courier New',Courier,monospace;font-size:13px;color:rgba(255,255,255,0.38);max-width:220px;line-height:1.7}
+.ft-col h5{font-family:'Courier New',Courier,monospace;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:1rem}
+.ft-col ul{list-style:none;padding:0}
+.ft-col li{margin-bottom:6px}
+.ft-col a{font-family:'Courier New',Courier,monospace;font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s}
+.ft-col a:hover{color:#fff}
+.ft-nl input{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,0.12);padding:0.5rem 0;font-family:'Courier New',Courier,monospace;font-size:13px;color:#fff;outline:none;border-radius:0}
+.ft-nl input::placeholder{color:rgba(255,255,255,0.22)}
+.ft-bot{border-top:1px solid rgba(255,255,255,0.07);padding:1.5rem 0;max-width:1440px;margin:0 auto;display:flex;justify-content:space-between;font-family:'Courier New',Courier,monospace;font-size:12px;color:rgba(255,255,255,0.2);letter-spacing:0.1em}
+.ft-bot a{color:rgba(255,255,255,0.35);transition:color 0.2s}
+.ft-bot a:hover{color:#fff}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){.prod-grid{column-gap:40px;padding:40px 2rem 0}}
+@media(max-width:900px){.prod-grid{grid-template-columns:repeat(2,1fr)}.ft-g{grid-template-columns:1fr 1fr;gap:2rem}.strip-panel{width:55vw}}
+@media(max-width:768px){.hn-l{display:none}.h-ham{display:flex}.hdr-g{grid-template-columns:auto 1fr auto}.hn-c{justify-content:flex-start}.prod-grid{grid-template-columns:1fr;padding:30px 1.5rem 0;column-gap:0}.h-track .pc{width:300px}.disc{padding:8vh 1.5rem 2rem}.ft-bot{flex-direction:column;gap:0.5rem}}
+@media(max-width:480px){.ft-g{grid-template-columns:1fr}.h-scroll{padding:0 1.5rem 60px}}
+</style>
+</head>
+<body>
+
+<!-- ANN BAR -->
+<div class="ann" id="ann">
+  <button class="ann-btn" id="annP">&#8249;</button>
+  <div class="ann-body">
+    <span class="ann-msg on">Free shipping on orders over $75</span>
+    <span class="ann-msg">Myrrh Sea Mercantile &mdash; New Collection</span>
+    <span class="ann-msg">Tops now available &mdash; Shop Now</span>
+    <span class="ann-msg">When the world gets darker... be the light</span>
+  </div>
+  <button class="ann-btn" id="annN">&#8250;</button>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hdr-g">
+    <nav class="hn-l">
+      <a href="#" class="active">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hn-c">
+      <a href="#"><img src="images/logo.png" alt="Myrrh Sea Mercantile" onerror="this.src='images/logo.jpg'"></a>
+    </div>
+    <div class="hn-r">
+      <a href="https://myrrh-sea-mercantile.myshopify.com" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" width="17" height="17" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/></svg>
+        Cart
+      </a>
+      <button class="h-ham" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mob" id="mob">
+  <button class="mob-x" id="mobX">&#10005;</button>
+  <a href="#">Home</a>
+  <a href="#shop">Shop</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO — full viewport, no text, header transparent over it -->
+<section class="hero">
+  <img src="images/hero.jpg" alt="Myrrh Sea Mercantile">
+</section>
+
+<!-- SECTION HEAD -->
+<div class="s-head">
+  <div class="s-title">Myrrh Sea Mercantile</div>
+  <a href="#shop" class="s-va">View All</a>
+</div>
+
+<!-- PRODUCT GRID — 3 per row, white bg, massive spacing -->
+<div class="prod-grid" id="shop">
+
+  <div class="pc"><div class="pc-img"><img src="images/top-1.svg" alt="Essential"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button></div></div><div class="pc-info"><div class="pc-name">Essential</div><div class="pc-price">Available on Shopify</div><div class="pc-swatches"><div class="sw" style="background:#2A2A2A"></div><div class="sw" style="background:#C4B49A"></div><div class="sw" style="background:#3D7A7B"></div></div></div></div>
+
+  <div class="pc"><div class="pc-img"><img src="images/top-2.svg" alt="Fear of the Lord"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button></div></div><div class="pc-info"><div class="pc-name">Fear of the Lord</div><div class="pc-price">Available on Shopify</div><div class="pc-swatches"><div class="sw" style="background:#1E1E1E"></div><div class="sw" style="background:#EDE8DF"></div></div></div></div>
+
+  <div class="pc"><div class="pc-img"><img src="images/top-3.svg" alt="Meditate"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button></div></div><div class="pc-info"><div class="pc-name">Meditate</div><div class="pc-price">Available on Shopify</div><div class="pc-swatches"><div class="sw" style="background:#4A5240"></div><div class="sw" style="background:#C4A06A"></div></div></div></div>
+
+  <div class="pc"><div class="pc-img"><img src="images/top-4.svg" alt="Minimalist"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button></div></div><div class="pc-info"><div class="pc-name">Minimalist</div><div class="pc-price">Available on Shopify</div><div class="pc-swatches"><div class="sw" style="background:#EDE8DF"></div><div class="sw" style="background:#2A2A2A"></div></div></div></div>
+
+  <div class="pc"><div class="pc-img"><img src="images/top-5.svg" alt="Built Different"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button></div></div><div class="pc-info"><div class="pc-name">Built Different</div><div class="pc-price">Available on Shopify</div><div class="pc-swatches"><div class="sw" style="background:#2A2A2A"></div><div class="sw" style="background:#8C7B6A"></div></div></div></div>
+
+  <div class="pc"><div class="pc-img"><img src="images/top-6.svg" alt="My Life is a Testimony"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button></div></div><div class="pc-info"><div class="pc-name">My Life is a Testimony</div><div class="pc-price">Available on Shopify</div><div class="pc-swatches"><div class="sw" style="background:#3D7A7B"></div><div class="sw" style="background:#EDE8DF"></div></div></div></div>
+
+  <div class="pc"><div class="pc-img"><img src="images/top-7.svg" alt="Positive Impact"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button></div></div><div class="pc-info"><div class="pc-name">Positive Impact</div><div class="pc-price">Available on Shopify</div><div class="pc-swatches"><div class="sw" style="background:#C4A06A"></div><div class="sw" style="background:#2A2A2A"></div></div></div></div>
+
+  <div class="pc"><div class="pc-img"><img src="images/top-8.svg" alt="Clarity"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button></div></div><div class="pc-info"><div class="pc-name">Clarity</div><div class="pc-price">Available on Shopify</div><div class="pc-swatches"><div class="sw" style="background:#EDE8DF"></div><div class="sw" style="background:#4A5240"></div><div class="sw" style="background:#C4B49A"></div></div></div></div>
+
+</div><!-- end prod-grid -->
+
+<!-- EDITORIAL AUTO-SCROLL STRIP -->
+<div class="strip-wrap">
+  <div class="strip-head"><h2>Tops Collection</h2><p>Garment Details</p></div>
+  <div class="strip-runner" id="strip">
+    <div class="strip-panel" style="background:#E8E4DC"><img src="images/top-1.svg" alt="Essential"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Essential</div></div></div>
+    <div class="strip-panel" style="background:#2A2A2A"><img src="images/top-2.svg" alt="Fear of the Lord"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Fear of the Lord</div></div></div>
+    <div class="strip-panel" style="background:#3D5A4C"><img src="images/top-3.svg" alt="Meditate"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Meditate</div></div></div>
+    <div class="strip-panel" style="background:#C4B49A"><img src="images/top-4.svg" alt="Minimalist"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Minimalist</div></div></div>
+    <div class="strip-panel" style="background:#1E2830"><img src="images/top-5.svg" alt="Built Different"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Built Different</div></div></div>
+    <div class="strip-panel" style="background:#E0D8CC"><img src="images/top-6.svg" alt="Testimony"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">My Life is a Testimony</div></div></div>
+    <div class="strip-panel" style="background:#4A3020"><img src="images/top-7.svg" alt="Positive Impact"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Positive Impact</div></div></div>
+    <div class="strip-panel" style="background:#D4CFC8"><img src="images/top-8.svg" alt="Clarity"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Clarity</div></div></div>
+  </div>
+</div>
+
+<!-- DISCOVER + CAROUSEL -->
+<div class="disc">
+  <span class="disc-lbl">Discover</span>
+  <div class="disc-tabs">
+    <button class="d-tab on" onclick="setTab(this)">Essential</button>
+    <button class="d-tab" onclick="setTab(this)">Meditate</button>
+    <button class="d-tab" onclick="setTab(this)">Built Different</button>
+  </div>
+  <a href="https://myrrh-sea-mercantile.myshopify.com" target="_blank" class="disc-va">View All</a>
+</div>
+
+<div class="h-scroll" id="hs1">
+  <div class="h-track">
+    <div class="pc"><div class="pc-img"><img src="images/top-8.svg" alt="Clarity"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Clarity</div><div class="pc-price">Available on Shopify</div></div></div>
+    <div class="pc"><div class="pc-img"><img src="images/top-7.svg" alt="Positive Impact"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Positive Impact</div><div class="pc-price">Available on Shopify</div></div></div>
+    <div class="pc"><div class="pc-img"><img src="images/top-6.svg" alt="Testimony"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">My Life is a Testimony</div><div class="pc-price">Available on Shopify</div></div></div>
+    <div class="pc"><div class="pc-img"><img src="images/top-5.svg" alt="Built Different"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Built Different</div><div class="pc-price">Available on Shopify</div></div></div>
+    <div class="pc"><div class="pc-img"><img src="images/top-1.svg" alt="Essential"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Essential</div><div class="pc-price">Available on Shopify</div></div></div>
+  </div>
+</div>
+
+<!-- CINEMATIC BANNER -->
+<div class="cin">
+  <img src="images/hero.jpg" alt="When the world gets darker">
+  <div class="cin-over">
+    <p>Myrrh Sea Mercantile</p>
+    <h2>When the world gets darker...<br>be the light.</h2>
+    <a href="https://myrrh-sea-mercantile.myshopify.com" target="_blank" class="cin-btn">Shop Now</a>
+  </div>
+</div>
+
+<!-- NEW IN -->
+<div class="disc" style="margin-top:0">
+  <span class="disc-lbl">New In</span>
+  <div class="disc-tabs"><button class="d-tab on">Tops</button></div>
+  <a href="https://myrrh-sea-mercantile.myshopify.com" target="_blank" class="disc-va">View All</a>
+</div>
+
+<div class="h-scroll" id="hs2" style="border-bottom:1px solid #e5e5e5">
+  <div class="h-track">
+    <div class="pc"><div class="pc-img"><img src="images/top-1.svg" alt="Essential"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Essential</div><div class="pc-price">Available on Shopify</div></div></div>
+    <div class="pc"><div class="pc-img"><img src="images/top-2.svg" alt="Fear of the Lord"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Fear of the Lord</div><div class="pc-price">Available on Shopify</div></div></div>
+    <div class="pc"><div class="pc-img"><img src="images/top-3.svg" alt="Meditate"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Meditate</div><div class="pc-price">Available on Shopify</div></div></div>
+    <div class="pc"><div class="pc-img"><img src="images/top-4.svg" alt="Minimalist"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Minimalist</div><div class="pc-price">Available on Shopify</div></div></div>
+    <div class="pc"><div class="pc-img"><img src="images/top-5.svg" alt="Built Different"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Built Different</div><div class="pc-price">Available on Shopify</div></div></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="ft">
+  <div class="ft-g">
+    <div class="ft-logo">
+      <img src="images/logo.png" alt="Myrrh Sea" onerror="this.src='images/logo.jpg'">
+      <p>Curated goods with soul. Every piece chosen with purpose.</p>
+    </div>
+    <div class="ft-col">
+      <h5>Navigate</h5>
+      <ul><li><a href="#">Home</a></li><li><a href="#shop">Shop</a></li><li><a href="#contact">Contact</a></li><li><a href="https://myrrh-sea-mercantile.myshopify.com" target="_blank">Shopify Store</a></li></ul>
+    </div>
+    <div class="ft-col">
+      <h5>Support</h5>
+      <ul><li><a href="#contact">Contact Us</a></li><li><a href="#">Shipping &amp; Returns</a></li><li><a href="#">Privacy Policy</a></li></ul>
+    </div>
+    <div class="ft-col ft-nl">
+      <h5>Newsletter</h5>
+      <p style="font-family:'Courier New',monospace;font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:1rem;line-height:1.6">Sign up for new arrivals.</p>
+      <input type="email" placeholder="Email address">
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>&copy; 2026 Myrrh Sea Mercantile. All rights reserved.</span>
+    <span>Made by <a href="https://makeitandmarket.com" target="_blank">makeitandmarket.com</a></span>
+  </div>
+</footer>
+
+<script>
+// Ann bar
+const msgs=document.querySelectorAll('.ann-msg');let cur=0;
+function showMsg(i){msgs.forEach(m=>m.classList.remove('on'));msgs[i].classList.add('on')}
+document.getElementById('annN').addEventListener('click',()=>{cur=(cur+1)%msgs.length;showMsg(cur)});
+document.getElementById('annP').addEventListener('click',()=>{cur=(cur-1+msgs.length)%msgs.length;showMsg(cur)});
+setInterval(()=>{cur=(cur+1)%msgs.length;showMsg(cur)},4000);
+
+// Header scroll
+const hdr=document.getElementById('hdr'),ann=document.getElementById('ann');
+const ANN_H=ann.offsetHeight;let prev=0;
+function onScroll(){
+  const s=window.scrollY;
+  s>80?hdr.classList.add('solid'):hdr.classList.remove('solid');
+  if(s>ANN_H+10&&s>prev)hdr.classList.add('rise');
+  else if(s<prev)hdr.classList.remove('rise');
+  prev=s;
+}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// Mobile nav
+const ham=document.getElementById('ham'),mob=document.getElementById('mob'),mobX=document.getElementById('mobX');
+ham.addEventListener('click',()=>{mob.classList.add('open');document.body.style.overflow='hidden'});
+const closeNav=()=>{mob.classList.remove('open');document.body.style.overflow=''};
+mobX.addEventListener('click',closeNav);
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeNav));
+
+// Drag carousels
+function drag(el){
+  if(!el)return;
+  let down=false,sx,sl;
+  el.addEventListener('mousedown',e=>{down=true;el.classList.add('drag');sx=e.pageX-el.offsetLeft;sl=el.scrollLeft});
+  el.addEventListener('mouseleave',()=>{down=false;el.classList.remove('drag')});
+  el.addEventListener('mouseup',()=>{down=false;el.classList.remove('drag')});
+  el.addEventListener('mousemove',e=>{if(!down)return;e.preventDefault();el.scrollLeft=sl-(e.pageX-el.offsetLeft-sx)*1.4});
+  let tx,tsl;
+  el.addEventListener('touchstart',e=>{tx=e.touches[0].pageX;tsl=el.scrollLeft},{passive:true});
+  el.addEventListener('touchmove',e=>{el.scrollLeft=tsl+(tx-e.touches[0].pageX)},{passive:true});
+}
+drag(document.getElementById('hs1'));
+drag(document.getElementById('hs2'));
+
+// Duplicate strip for infinite loop
+const strip=document.getElementById('strip');
+strip.innerHTML+=strip.innerHTML;
+
+// Discover tabs
+function setTab(el){document.querySelectorAll('.d-tab').forEach(t=>t.classList.remove('on'));el.classList.add('on')}
+</script>
+</body>
+</html>
