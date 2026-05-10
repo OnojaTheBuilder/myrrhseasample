@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Myrrh Sea Mercantile</title>
+<meta name="description" content="Contact Myrrh Sea Mercantile — questions, orders, collaborations.">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="ann" id="ann">
+  <button class="ann-btn" id="annP">&#8249;</button>
+  <div class="ann-body">
+    <span class="ann-msg on">Free shipping on orders over $75</span>
+    <span class="ann-msg">Myrrh Sea Mercantile &mdash; New Collection</span>
+    <span class="ann-msg">Tops now available &mdash; <a href="shop.html" style="color:#fff;text-decoration:underline">Shop Now</a></span>
+    <span class="ann-msg">When the world gets darker... be the light</span>
+  </div>
+  <button class="ann-btn" id="annN">&#8250;</button>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hdr-g">
+    <nav class="hn-l">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="hn-c">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Myrrh Sea Mercantile" onerror="this.src='images/logo.jpg'">
+      </a>
+    </div>
+    <div class="hn-r">
+      <a href="https://myrrh-sea-mercantile.myshopify.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" width="17" height="17" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/>
+        </svg>
+        Cart
+      </a>
+      <button class="h-ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mob" id="mob">
+  <button class="mob-x" id="mobX">&#10005;</button>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-offset">
+  <div class="page-head">
+    <h1>Contact</h1>
+    <p>Questions, orders, or collaborations</p>
+  </div>
+</div>
+
+<!-- CONTACT CONTENT -->
+<div class="contact-wrap rv">
+
+  <!-- FORM COL -->
+  <div class="contact-form-col">
+    <div class="contact-form-title">Send a Message</div>
+    <span class="contact-form-sub">We typically respond within 24 hours</span>
+
+    <form class="cf" id="contactForm" novalidate>
+      <div class="fg-row">
+        <div class="fg">
+          <label for="fname">First Name *</label>
+          <input type="text" id="fname" name="fname" placeholder="Your first name" required>
+        </div>
+        <div class="fg">
+          <label for="lname">Last Name *</label>
+          <input type="text" id="lname" name="lname" placeholder="Your last name" required>
+        </div>
+      </div>
+
+      <div class="fg">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <div class="fg">
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject">
+          <option value="">Select a subject</option>
+          <option value="general">General Inquiry</option>
+          <option value="order">Order Question</option>
+          <option value="wholesale">Wholesale / Collaboration</option>
+          <option value="press">Press</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="fg">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" placeholder="Tell us what's on your mind..." required></textarea>
+      </div>
+
+      <div class="cf-msg" id="cfMsg"></div>
+
+      <button type="submit" class="cf-btn" id="cfBtn">Send Message</button>
+    </form>
+  </div>
+
+  <!-- INFO COL -->
+  <div class="contact-info-col">
+    <div class="contact-info-title">Get In Touch</div>
+
+    <div class="contact-item">
+      <span class="contact-item-label">Shopify Store</span>
+      <div class="contact-item-val">
+        <a href="https://myrrh-sea-mercantile.myshopify.com" target="_blank" rel="noopener">
+          myrrh-sea-mercantile.myshopify.com &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="contact-item-label">Collection</span>
+      <div class="contact-item-val">
+        Tops — 8 styles available<br>
+        <a href="shop.html" style="text-decoration:underline;opacity:0.6">Browse the collection &rarr;</a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="contact-item-label">Shipping</span>
+      <div class="contact-item-val">Free shipping on orders over $75.<br>All orders processed via Shopify.</div>
+    </div>
+
+    <div class="contact-item">
+      <span class="contact-item-label">Returns</span>
+      <div class="contact-item-val">30-day return policy on all unworn items. Contact us for return instructions.</div>
+    </div>
+
+    <div class="contact-item">
+      <span class="contact-item-label">Brand</span>
+      <div class="contact-item-val" style="font-style:italic;font-size:1.1rem;line-height:1.6;color:rgba(17,17,17,0.6);">
+        "When the world gets darker...<br>be the light."
+      </div>
+    </div>
+  </div>
+
+</div><!-- /contact-wrap -->
+
+<!-- CINEMATIC BANNER -->
+<div class="cin rv">
+  <img src="images/hero.jpg" alt="Myrrh Sea Mercantile">
+  <div class="cin-over">
+    <p>Myrrh Sea Mercantile</p>
+    <h2>Goods with Soul</h2>
+    <a href="shop.html" class="cin-btn">Shop the Collection</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="ft">
+  <div class="ft-g">
+    <div class="ft-logo">
+      <img src="images/logo.png" alt="Myrrh Sea" onerror="this.src='images/logo.jpg'">
+      <p>Curated goods with soul. Every piece chosen with purpose.</p>
+    </div>
+    <div class="ft-col">
+      <h5>Navigate</h5>
+      <ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://myrrh-sea-mercantile.myshopify.com" target="_blank">Shopify Store</a></li></ul>
+    </div>
+    <div class="ft-col">
+      <h5>Support</h5>
+      <ul><li><a href="contact.html">Contact Us</a></li><li><a href="#">Shipping &amp; Returns</a></li><li><a href="#">Privacy Policy</a></li></ul>
+    </div>
+    <div class="ft-col ft-nl">
+      <h5>Newsletter</h5>
+      <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:1rem;line-height:1.6;font-family:'Courier New',monospace">Sign up for new arrivals.</p>
+      <input type="email" placeholder="Email address">
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>&copy; 2026 Myrrh Sea Mercantile. All rights reserved.</span>
+    <span>Made by <a href="https://makeitandmarket.com" target="_blank">makeitandmarket.com</a></span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
