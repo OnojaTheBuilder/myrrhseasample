@@ -29,14 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
   function onScroll() {
     const s = window.scrollY;
 
-    if (!isHome) {
-      /* ── SHOP & CONTACT ──
-         Header always solid white
-         Ann bar always visible and fixed at top
-         Header sits directly below ann bar always */
+   if (!isHome) {
       hdr.classList.add('solid');
-      hdr.style.top = ANN_H + 'px';
-      ann.style.transform = 'translateY(0)';
+      hdr.style.top = '0';
 
     } else {
       /* ── HOME PAGE ──
