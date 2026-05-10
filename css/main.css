@@ -859,3 +859,29 @@ ul { list-style: none; padding: 0; }
   .ft-g { grid-template-columns: 1fr; }
   .prod-grid { grid-template-columns: 1fr; }
 }
+/* ── SHOP & CONTACT — header always solid white, no hero ── */
+body.page-shop #hdr,
+body.page-contact #hdr {
+  background: #fff !important;
+  border-bottom: 1px solid #e5e5e5 !important;
+}
+
+body.page-shop #hdr .hn-l a,
+body.page-contact #hdr .hn-l a {
+  color: #111 !important;
+}
+
+body.page-shop #hdr .hn-r a,
+body.page-contact #hdr .hn-r a {
+  color: #111 !important;
+}
+
+body.page-shop #hdr .hn-r svg,
+body.page-contact #hdr .hn-r svg {
+  stroke: #111 !important;
+}
+
+body.page-shop #hdr .h-ham span,
+body.page-contact #hdr .h-ham span {
+  background: #111 !important;
+}
