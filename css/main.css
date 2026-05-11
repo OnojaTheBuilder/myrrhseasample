@@ -158,7 +158,7 @@ ul { list-style: none; padding: 0; }
 /* Logo center */
 .hn-c { display: flex; justify-content: center; align-items: center; }
 .hn-c img {
-  height: 120px !important;
+  height: 80px;
   width: auto;
   max-width: 420px !important;
   object-fit: contain;
