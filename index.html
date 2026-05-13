@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Myrrh Sea Mercantile — Goods with Soul</title>
 <meta name="description" content="Myrrh Sea Mercantile — curated tops collection. When the world gets darker, be the light.">
+<script>
+  function setHeroHeight() {
+    var hero = document.querySelector('.hero');
+    if (hero) {
+      // visualViewport is the most accurate — accounts for address bar
+      var h = (window.visualViewport ? window.visualViewport.height : window.innerHeight);
+      hero.style.minHeight = h + 'px';
+    }
+  }
+  // Run on every possible trigger
+  window.addEventListener('load', setHeroHeight);
+  window.addEventListener('resize', setHeroHeight);
+  window.addEventListener('orientationchange', setHeroHeight);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', setHeroHeight);
+  }
+</script>
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="home">
