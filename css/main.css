@@ -239,8 +239,7 @@ body.page-contact #hdr .h-ham span { background: #161616 !important; }
 
 .hero img {
   width: 100%;
-  height: 100vh;
-  min-height: 600px;
+  height: 100vh; /* fallback */
   object-fit: cover;
   object-position: center center;
   display: block;
