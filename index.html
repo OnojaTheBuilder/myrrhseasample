@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Myrrh Sea Mercantile — Goods with Soul</title>
 <meta name="description" content="Myrrh Sea Mercantile — curated tops collection. When the world gets darker, be the light.">
+<script>
+  // Fix hero height universally across all browsers and screen setups
+  function setHeroHeight() {
+    var hero = document.querySelector('.hero img');
+    if (hero) {
+      hero.style.height = window.innerHeight + 'px';
+    }
+  }
+  setHeroHeight();
+  window.addEventListener('resize', setHeroHeight);
+</script>
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="home">
