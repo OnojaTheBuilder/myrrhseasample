@@ -227,25 +227,25 @@ body.page-contact #hdr .h-ham span { background: #161616 !important; }
 .page-offset { padding-top: 74px; }
 
 /* ═══════════════════════════════════════════
-   HERO — homepage only
+   HERO — homepage only, NO zoom, NO animation
    ═══════════════════════════════════════════ */
-.hero {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  min-height: 100vh; /* JS fallback */
-}
-
+.hero { width: 100%; overflow: hidden; position: relative; }
 .hero img {
   width: 100%;
-  height: 100vh;        /* fallback */
-  height: 100dvh;       /* dynamic — adjusts as address bar shows/hides */
+  height: 100vh;
+  height: 100svh;
+  min-height: 500px;
+  max-height: 100vh;
   object-fit: cover;
   object-position: center center;
   display: block;
   animation: none;
   transform: none;
 }
+@supports (height: 100svh) {
+  .hero img { height: 100svh; }
+}
+
 /* ═══════════════════════════════════════════
    PAGE HEADER — inner pages
    ═══════════════════════════════════════════ */
