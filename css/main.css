@@ -233,10 +233,15 @@ body.page-contact #hdr .h-ham span { background: #161616 !important; }
   width: 100%;
   overflow: hidden;
   position: relative;
+  min-height: 500px;
   height: 100vh;
+  height: -webkit-fill-available;
 }
 
 .hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
