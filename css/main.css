@@ -1017,3 +1017,36 @@ body,
     min-height: auto;
   }
 }
+/* ── SLOGAN FONT — cursive, light weight ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+
+.cin-over h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 300 !important;
+  font-size: clamp(2.5rem, 6vw, 5.5rem) !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.15 !important;
+}
+
+/* ── DYNAMIC HEADER BORDER — pulses in/out on transparent state only ── */
+@keyframes borderPulse {
+  0%   { border-bottom-color: rgba(255,255,255,0); }
+  50%  { border-bottom-color: rgba(255,255,255,0.35); }
+  100% { border-bottom-color: rgba(255,255,255,0); }
+}
+
+/* Transparent state — animated pulsing white line */
+#hdr:not(.solid) {
+  animation: borderPulse 3s ease-in-out infinite;
+  border-bottom: 1px solid rgba(255,255,255,0);
+}
+
+/* Solid/scrolled state — static subtle line, NO animation */
+#hdr.solid {
+  animation: none !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+  background: rgba(255,255,255,0.82) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
