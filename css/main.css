@@ -237,9 +237,9 @@ body.page-contact #hdr .h-ham span { background: #161616 !important; }
 
 .hero img {
   width: 100%;
-  height: calc(100vh - 40px); /* 100vh minus ann bar only */
+  height: 100vh;
   object-fit: cover;
-  object-position: center center;
+  object-position: center top; /* changed from center center to center top */
   display: block;
   animation: none;
   transform: none;
