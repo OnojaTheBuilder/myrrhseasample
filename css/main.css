@@ -174,11 +174,24 @@ body::before {
   transition: color 0.3s, opacity 0.2s;
 }
 .hn-r a:hover { opacity: 0.6; }
-.hn-r svg { stroke: #161616;
+.hn-r svg {
+  stroke: #161616;
+}
 
 /* Hamburger */
-.h-ham { display: none; flex-direction: column; gap: 5px; padding: 4px; }
-.h-ham span { display: block; width: 20px; height: 1px; background: #161616;
+.h-ham {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.h-ham span {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: #161616;
+}
 
 /* Mobile nav */
 .mob {
@@ -847,7 +860,11 @@ body.page-contact #hdr .h-ham span { background: #161616 !important; }
   .shop-filter { padding: 1.5rem; flex-wrap: wrap; }
   .ft-bot { flex-direction: column; gap: 0.5rem; text-align: center; }
   .fg-row { grid-template-columns: 1fr; gap: 1.5rem; }
-  .hero img { height: 92vh; height: 92svh; min-height: auto; }
+  .hero img {
+    min-height: 92dvh;
+    height: auto;
+    object-position: center 60%;
+  }
 }
 @media (max-width: 480px) {
   .ft-g { grid-template-columns: 1fr; }
