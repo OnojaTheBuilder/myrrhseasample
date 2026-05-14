@@ -102,21 +102,16 @@ body::before {
   top: 40px; left: 0; right: 0;
   height: 74px;
   z-index: 999;
-  background: transparent;
-  /* Static white border — always visible when transparent over hero */
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  transition: background 0.3s ease, border-color 0.3s ease, top 0.3s ease,
-              backdrop-filter 0.3s ease;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  transition: top 0.3s ease;
 }
 
 /* Scrolled — frosted glass, dark border, no animation */
 #hdr.solid {
-  background: #fff !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-bottom: 1px solid #e5e5e5 !important;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
 }
-
 #hdr.rise { top: 0; }
 
 .hdr-g {
@@ -135,7 +130,7 @@ body::before {
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.9);
+  color: #161616;
   transition: color 0.3s, opacity 0.2s;
   position: relative;
 }
@@ -172,18 +167,18 @@ body::before {
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.9);
+  color: #161616;
   display: flex;
   align-items: center;
   gap: 0.4rem;
   transition: color 0.3s, opacity 0.2s;
 }
 .hn-r a:hover { opacity: 0.6; }
-.hn-r svg { stroke: rgba(255,255,255,0.9); transition: stroke 0.3s; }
+.hn-r svg { stroke: #161616;
 
 /* Hamburger */
 .h-ham { display: none; flex-direction: column; gap: 5px; padding: 4px; }
-.h-ham span { display: block; width: 20px; height: 1px; background: rgba(255,255,255,0.9); transition: background 0.3s; }
+.h-ham span { display: block; width: 20px; height: 1px; background: #161616;
 
 /* Mobile nav */
 .mob {
@@ -240,7 +235,7 @@ body.page-contact #hdr .h-ham span { background: #161616 !important; }
   min-height: calc(100dvh - 114px);
   height: auto;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 60%;
   display: block;
   animation: none;
   transform: none;
