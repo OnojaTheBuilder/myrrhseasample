@@ -1,285 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Myrrh Sea Mercantile — Goods with Soul</title>
-<meta name="description" content="Myrrh Sea Mercantile — curated tops collection. When the world gets darker, be the light.">
-<link rel="stylesheet" href="css/main.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CirkleUp — Social Media, Fixed.</title>
+<meta name="description" content="Invite-only. Creator-first. No algorithms. Join 2,400+ creators on the waitlist."/>
+<meta property="og:title" content="CirkleUp — Social Media, Fixed."/>
+<meta property="og:description" content="The only social platform you can't sign up for. Request your invite."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/styles.css"/>
 </head>
-<body class="home">
-  <!-- HERO -->
-<section class="hero">
-  <img src="images/heropix.jpeg" alt="Myrrh Sea Mercantile — Tops Collection">
-</section>
+<body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="ann" id="ann">
-  <button class="ann-btn" id="annP">&#8249;</button>
-  <div class="ann-body">
-    <span class="ann-msg on">Free shipping on orders over $75</span>
-    <span class="ann-msg">Myrrh Sea Mercantile &mdash; New Collection</span>
-    <span class="ann-msg">Tops now available &mdash; <a href="shop.html" style="color:#fff;text-decoration:underline">Shop Now</a></span>
-    <span class="ann-msg">When the world gets darker... be the light</span>
-  </div>
-  <button class="ann-btn" id="annN">&#8250;</button>
-</div>
 
-<!-- HEADER -->
-<header id="hdr">
-  <div class="hdr-g">
-    <nav class="hn-l">
-      <a href="index.html" class="active">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="hn-c">
-      <a href="index.html">
-        <img src="images/newlogo.png" alt="Myrrh Sea Mercantile" onerror="this.src='images/logo.jpg'">
-      </a>
-    </div>
-    <div class="hn-r">
-      <a href="https://myrrh-sea-mercantile.myshopify.com" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" width="17" height="17" stroke-width="1.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/>
+<!-- ═══════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="6.5" stroke="white" stroke-width="2"/>
+          <circle cx="8" cy="8" r="2.5" fill="white"/>
         </svg>
-        Cart
-      </a>
-      <button class="h-ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
+      </div>
+      CirkleUp
+    </a>
+    <a href="#waitlist" class="btn btn-primary btn-sm">
+      Claim Your Invite <span class="arr">↗</span>
+    </a>
   </div>
 </header>
 
-<!-- MOBILE NAV -->
-<nav class="mob" id="mob">
-  <button class="mob-x" id="mobX">&#10005;</button>
-  <a href="index.html">Home</a>
-  <a href="shop.html">Shop</a>
-  <a href="contact.html">Contact</a>
-</nav>
-<!-- SECTION HEAD -->
-<div class="s-head rv">
-  <div class="s-title">Myrrh Sea Mercantile</div>
-  <a href="shop.html" class="s-va">View All</a>
-</div>
 
-<!-- PRODUCT GRID — 3 per row -->
-<div class="prod-grid">
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+  </div>
 
-  <div class="pc rv">
-    <div class="pc-img">
-      <img src="images/top-1.svg" alt="Essential">
-      <button class="pc-plus" aria-label="Quick add">+</button>
-      <div class="pc-sizes">
-        <button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button>
+  <div class="hero-content">
+
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      🚀 Launching Soon
+    </div>
+
+    <h1>Social media is broken.<br><span class="accent">We're fixing it.</span></h1>
+
+    <p class="hero-mechanism">The only social platform you can't sign up for.</p>
+
+    <ul class="hero-bullets">
+      <li><span class="hb-icon" aria-hidden="true">↘</span>Algorithms kill your reach.</li>
+      <li><span class="hb-icon" aria-hidden="true">⊘</span>Bots flood your community.</li>
+      <li><span class="hb-icon" aria-hidden="true">⊖</span>Platforms take 45% of what you earn.</li>
+    </ul>
+
+    <div class="lineage-callout">
+      <span class="lineage-icon">🌳</span>
+      <p>Your founding position is permanent — the people you invite build under you forever.</p>
+    </div>
+
+    <div class="hero-form-wrap" id="waitlist">
+      <form class="hero-form" id="heroForm" novalidate>
+        <label for="heroEmail" class="sr-only">Email address</label>
+        <input
+          type="email" id="heroEmail" name="email"
+          class="hero-input" placeholder="your@email.com"
+          autocomplete="email" required
+        />
+        <button type="submit" class="btn btn-primary btn-md" id="heroBtn">
+          Claim Your Invite <span class="arr">→</span>
+        </button>
+      </form>
+      <span class="input-err" id="heroErr"></span>
+      <p class="invite-note">Founding members get 5 invites to share with their circle.</p>
+      <p class="what-next">We'll email you when your spot opens. You'll get access + 3 invites.</p>
+    </div>
+
+    <div class="social-proof">
+      <div class="avatar-stack">
+        <div class="av av-1">MR</div>
+        <div class="av av-2">JS</div>
+        <div class="av av-3">AK</div>
+        <div class="av av-4">TC</div>
+        <div class="av av-5">LP</div>
       </div>
+      <p class="proof-text">
+        <strong>2,400+ creators</strong> across music, tech &amp; fashion — already waiting
+      </p>
     </div>
-    <div class="pc-info">
-      <div class="pc-name">Essential</div>
-      <div class="pc-price">Available on Shopify</div>
-      <div class="pc-swatches"><div class="sw" style="background:#2A2A2A"></div><div class="sw" style="background:#C4B49A"></div><div class="sw" style="background:#3D7A7B"></div></div>
-    </div>
-  </div>
 
-  <div class="pc rv">
-    <div class="pc-img">
-      <img src="images/top-2.svg" alt="Fear of the Lord">
-      <button class="pc-plus" aria-label="Quick add">+</button>
-      <div class="pc-sizes">
-        <button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button>
-      </div>
-    </div>
-    <div class="pc-info">
-      <div class="pc-name">Fear of the Lord</div>
-      <div class="pc-price">Available on Shopify</div>
-      <div class="pc-swatches"><div class="sw" style="background:#1E1E1E"></div><div class="sw" style="background:#EDE8DF"></div></div>
-    </div>
   </div>
+</section>
 
-  <div class="pc rv">
-    <div class="pc-img">
-      <img src="images/top-3.svg" alt="Meditate">
-      <button class="pc-plus" aria-label="Quick add">+</button>
-      <div class="pc-sizes">
-        <button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button>
-      </div>
-    </div>
-    <div class="pc-info">
-      <div class="pc-name">Meditate</div>
-      <div class="pc-price">Available on Shopify</div>
-      <div class="pc-swatches"><div class="sw" style="background:#4A5240"></div><div class="sw" style="background:#C4A06A"></div></div>
-    </div>
-  </div>
 
-  <div class="pc rv">
-    <div class="pc-img">
-      <img src="images/top-4.svg" alt="Minimalist">
-      <button class="pc-plus" aria-label="Quick add">+</button>
-      <div class="pc-sizes">
-        <button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button>
-      </div>
+<!-- ═══════════════════════════════════════════
+     STATS BAR
+═══════════════════════════════════════════ -->
+<div class="stats-section">
+  <div class="stats-inner reveal">
+    <div class="stat">
+      <p class="stat-num">2,400+</p>
+      <p class="stat-label">Creators on the waitlist</p>
     </div>
-    <div class="pc-info">
-      <div class="pc-name">Minimalist</div>
-      <div class="pc-price">Available on Shopify</div>
-      <div class="pc-swatches"><div class="sw" style="background:#EDE8DF"></div><div class="sw" style="background:#2A2A2A"></div></div>
+    <div class="stat">
+      <p class="stat-num">90%</p>
+      <p class="stat-label">Revenue goes straight to you</p>
     </div>
-  </div>
-
-  <div class="pc rv">
-    <div class="pc-img">
-      <img src="images/top-5.svg" alt="Built Different">
-      <button class="pc-plus" aria-label="Quick add">+</button>
-      <div class="pc-sizes">
-        <button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button>
-      </div>
+    <div class="stat">
+      <p class="stat-num">Zero</p>
+      <p class="stat-label">Algorithms suppressing your content</p>
     </div>
-    <div class="pc-info">
-      <div class="pc-name">Built Different</div>
-      <div class="pc-price">Available on Shopify</div>
-      <div class="pc-swatches"><div class="sw" style="background:#2A2A2A"></div><div class="sw" style="background:#8C7B6A"></div></div>
-    </div>
-  </div>
-
-  <div class="pc rv">
-    <div class="pc-img">
-      <img src="images/top-6.svg" alt="My Life is a Testimony">
-      <button class="pc-plus" aria-label="Quick add">+</button>
-      <div class="pc-sizes">
-        <button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button>
-      </div>
-    </div>
-    <div class="pc-info">
-      <div class="pc-name">My Life is a Testimony</div>
-      <div class="pc-price">Available on Shopify</div>
-      <div class="pc-swatches"><div class="sw" style="background:#3D7A7B"></div><div class="sw" style="background:#EDE8DF"></div></div>
-    </div>
-  </div>
-
-  <div class="pc rv">
-    <div class="pc-img">
-      <img src="images/top-7.svg" alt="Positive Impact">
-      <button class="pc-plus" aria-label="Quick add">+</button>
-      <div class="pc-sizes">
-        <button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button>
-      </div>
-    </div>
-    <div class="pc-info">
-      <div class="pc-name">Positive Impact</div>
-      <div class="pc-price">Available on Shopify</div>
-      <div class="pc-swatches"><div class="sw" style="background:#C4A06A"></div><div class="sw" style="background:#2A2A2A"></div></div>
-    </div>
-  </div>
-
-  <div class="pc rv">
-    <div class="pc-img">
-      <img src="images/top-8.svg" alt="Clarity">
-      <button class="pc-plus" aria-label="Quick add">+</button>
-      <div class="pc-sizes">
-        <button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button><button class="pc-sz">XXL</button>
-      </div>
-    </div>
-    <div class="pc-info">
-      <div class="pc-name">Clarity</div>
-      <div class="pc-price">Available on Shopify</div>
-      <div class="pc-swatches"><div class="sw" style="background:#EDE8DF"></div><div class="sw" style="background:#4A5240"></div><div class="sw" style="background:#C4B49A"></div></div>
-    </div>
-  </div>
-
-</div><!-- /prod-grid -->
-
-<!-- EDITORIAL AUTO-SCROLL STRIP -->
-<div class="strip-wrap rv">
-  <div class="strip-head">
-    <h2>Tops Collection</h2>
-    <p>Garment Details</p>
-  </div>
-  <div class="strip-runner" id="strip">
-    <div class="strip-panel" style="background:#E8E4DC"><img src="images/top-1.svg" alt="Essential"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Essential</div></div></div>
-    <div class="strip-panel" style="background:#2A2A2A"><img src="images/top-2.svg" alt="Fear of the Lord"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Fear of the Lord</div></div></div>
-    <div class="strip-panel" style="background:#3D5A4C"><img src="images/top-3.svg" alt="Meditate"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Meditate</div></div></div>
-    <div class="strip-panel" style="background:#C4B49A"><img src="images/top-4.svg" alt="Minimalist"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Minimalist</div></div></div>
-    <div class="strip-panel" style="background:#1E2830"><img src="images/top-5.svg" alt="Built Different"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Built Different</div></div></div>
-    <div class="strip-panel" style="background:#E0D8CC"><img src="images/top-6.svg" alt="Testimony"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">My Life is a Testimony</div></div></div>
-    <div class="strip-panel" style="background:#4A3020"><img src="images/top-7.svg" alt="Positive Impact"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Positive Impact</div></div></div>
-    <div class="strip-panel" style="background:#D4CFC8"><img src="images/top-8.svg" alt="Clarity"><div class="strip-overlay"><div class="strip-eye">Tops</div><div class="strip-name">Clarity</div></div></div>
   </div>
 </div>
 
-<!-- DISCOVER + CAROUSEL -->
-<div class="disc rv">
-  <span class="disc-lbl">Discover</span>
-  <div class="disc-tabs">
-    <button class="d-tab on">Essential</button>
-    <button class="d-tab">Meditate</button>
-    <button class="d-tab">Built Different</button>
-  </div>
-  <a href="shop.html" class="disc-va">View All</a>
-</div>
 
-<div class="h-scroll" id="hs1">
-  <div class="h-track">
-    <div class="pc"><div class="pc-img"><img src="images/top-8.svg" alt="Clarity"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Clarity</div><div class="pc-price">Available on Shopify</div></div></div>
-    <div class="pc"><div class="pc-img"><img src="images/top-7.svg" alt="Positive Impact"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Positive Impact</div><div class="pc-price">Available on Shopify</div></div></div>
-    <div class="pc"><div class="pc-img"><img src="images/top-6.svg" alt="Testimony"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">My Life is a Testimony</div><div class="pc-price">Available on Shopify</div></div></div>
-    <div class="pc"><div class="pc-img"><img src="images/top-5.svg" alt="Built Different"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Built Different</div><div class="pc-price">Available on Shopify</div></div></div>
-    <div class="pc"><div class="pc-img"><img src="images/top-4.svg" alt="Minimalist"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Minimalist</div><div class="pc-price">Available on Shopify</div></div></div>
-  </div>
-</div>
-
-<!-- CINEMATIC BANNER -->
-<div class="cin rv">
-  <img src="images/hero.jpg" alt="When the world gets darker">
-  <div class="cin-over">
-    <p>Myrrh Sea Mercantile</p>
-    <h2>...be the light.</h2>
-    <a href="shop.html" class="cin-btn">Shop Now</a>
-  </div>
-</div>
-
-<!-- NEW IN -->
-<div class="disc rv">
-  <span class="disc-lbl">New In</span>
-  <div class="disc-tabs"><button class="d-tab on">Tops</button></div>
-  <a href="shop.html" class="disc-va">View All</a>
-</div>
-
-<div class="h-scroll" id="hs2" style="border-bottom:1px solid #e5e5e5">
-  <div class="h-track">
-    <div class="pc"><div class="pc-img"><img src="images/top-1.svg" alt="Essential"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Essential</div><div class="pc-price">Available on Shopify</div></div></div>
-    <div class="pc"><div class="pc-img"><img src="images/top-2.svg" alt="Fear of the Lord"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Fear of the Lord</div><div class="pc-price">Available on Shopify</div></div></div>
-    <div class="pc"><div class="pc-img"><img src="images/top-3.svg" alt="Meditate"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Meditate</div><div class="pc-price">Available on Shopify</div></div></div>
-    <div class="pc"><div class="pc-img"><img src="images/top-4.svg" alt="Minimalist"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Minimalist</div><div class="pc-price">Available on Shopify</div></div></div>
-    <div class="pc"><div class="pc-img"><img src="images/top-5.svg" alt="Built Different"><button class="pc-plus">+</button><div class="pc-sizes"><button class="pc-sz">XS</button><button class="pc-sz">S</button><button class="pc-sz">M</button><button class="pc-sz">L</button><button class="pc-sz">XL</button></div></div><div class="pc-info"><div class="pc-name">Built Different</div><div class="pc-price">Available on Shopify</div></div></div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer id="ft">
-  <div class="ft-g">
-    <div class="ft-logo">
-      <img src="images/logo.png" alt="Myrrh Sea" onerror="this.src='images/logo.jpg'">
-      <p>Curated goods with soul. Every piece chosen with purpose.</p>
+<!-- ═══════════════════════════════════════════
+     PROBLEM
+═══════════════════════════════════════════ -->
+<section class="section section--dark" id="problem">
+  <div class="wrap">
+    <div class="section-header">
+      <p class="section-tag reveal">The Problem</p>
+      <h2 class="reveal d1">Why every creator is <em class="on-dark">frustrated</em></h2>
     </div>
-    <div class="ft-col">
-      <h5>Navigate</h5>
-      <ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://myrrh-sea-mercantile.myshopify.com" target="_blank">Shopify Store</a></li></ul>
-    </div>
-    <div class="ft-col">
-      <h5>Support</h5>
-      <ul><li><a href="contact.html">Contact Us</a></li><li><a href="#">Shipping &amp; Returns</a></li><li><a href="#">Privacy Policy</a></li></ul>
-    </div>
-    <div class="ft-col ft-nl">
-      <h5>Newsletter</h5>
-      <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:1rem;line-height:1.6;font-family:'Courier New',monospace">Sign up for new arrivals.</p>
-      <input type="email" placeholder="Email address">
+    <div class="problem-grid">
+      <article class="problem-card reveal">
+        <span class="prob-icon">📉</span>
+        <h3>Algorithm manipulation</h3>
+        <p>Platforms decide who sees your content — and it's rarely the people who actually want to. Organic reach is down 90% unless you pay to boost.</p>
+      </article>
+      <article class="problem-card reveal d1">
+        <span class="prob-icon">🤖</span>
+        <h3>Bots everywhere</h3>
+        <p>Your comments, your DMs, your follower count — all inflated by bots. Engagement metrics are meaningless while your real audience drowns.</p>
+      </article>
+      <article class="problem-card reveal d2">
+        <span class="prob-icon">💸</span>
+        <h3>Platform takes the cut</h3>
+        <p>YouTube takes 45%. Spotify takes 70%. You do the work, build the audience, and they take the money. You're a revenue source, not a partner.</p>
+      </article>
+      <article class="problem-card reveal d3">
+        <span class="prob-icon">🎯</span>
+        <h3>You don't own your audience</h3>
+        <p>Get shadowbanned, go viral for the wrong reason, or wake up to a policy change — and every follower you built disappears overnight.</p>
+      </article>
     </div>
   </div>
-  <div class="ft-bot">
-    <span>&copy; 2026 Myrrh Sea Mercantile. All rights reserved.</span>
-    <span>Made by <a href="https://makeitandmarket.com" target="_blank">makeitandmarket.com</a></span>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SOLUTION / FEATURES
+═══════════════════════════════════════════ -->
+<section class="section section--soft" id="features">
+  <div class="wrap">
+    <div class="section-header">
+      <p class="section-tag reveal">The Solution</p>
+      <h2 class="reveal d1">We offer quality, <em>with tools<br>creators actually need</em></h2>
+    </div>
+    <div class="features-grid">
+      <article class="feat-card reveal">
+        <div class="feat-icon">🔒</div>
+        <h3>Invite-only access</h3>
+        <p>No bots. No trolls. No spam accounts. Every member is vouched for by someone already inside — quality control by design, not moderation.</p>
+      </article>
+      <article class="feat-card feat-card--highlight reveal d1">
+        <div class="feat-icon">🌳</div>
+        <h3>Permanent lineage system</h3>
+        <p>Your founding position is locked in forever. Everyone you invite builds under you — and everyone they invite builds under them. Your network compounds permanently, not algorithmically.</p>
+        <p class="feat-highlight-line">The only platform where your position gets more valuable the longer you hold it.</p>
+      </article>
+      <article class="feat-card reveal d2">
+        <div class="feat-icon">🚫</div>
+        <h3>No algorithms</h3>
+        <p>Your content reaches every subscriber — every single time. Chronological feeds, zero suppression. Your audience, your rules, always.</p>
+      </article>
+      <article class="feat-card reveal d1">
+        <div class="feat-icon">💰</div>
+        <h3>Keep 90% revenue</h3>
+        <p>Subscriptions, tips, digital products — you keep 90 cents of every dollar your community spends. We take 10% to keep the lights on.</p>
+      </article>
+      <article class="feat-card reveal d2">
+        <div class="feat-icon">🎟️</div>
+        <h3>Ticketed events</h3>
+        <p>Run paid live sessions, virtual workshops, and exclusive drops. Sell tickets, stream live, and interact with your real audience — all in one place.</p>
+      </article>
+      <article class="feat-card reveal d3">
+        <div class="feat-icon">📺</div>
+        <h3>Content library</h3>
+        <p>Upload videos, courses, and audio to a permanent, searchable library. Your content stays findable — not buried by a 48-hour news cycle.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════════ -->
+<section class="section" id="how-it-works">
+  <div class="wrap">
+    <div class="section-header">
+      <p class="section-tag reveal">Simple by design</p>
+      <h2 class="reveal d1">How it works, <em>in three steps</em></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Claim your invite</h3>
+        <p>Drop your email on the waitlist. Every Monday we release a batch of invites — highest-quality creators get priority access first.</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="step-num">02</div>
+        <h3>Build your Cirkle</h3>
+        <p>Set up your profile, upload your content, set your subscription price, and invite the people you want — with full control over who gets in.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-num">03</div>
+        <h3>Grow and earn</h3>
+        <p>Host events, sell content, build genuine community — and watch your monthly revenue grow without fighting an algorithm for visibility.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     COMPARISON TABLE
+═══════════════════════════════════════════ -->
+<section class="section section--dark" id="comparison">
+  <div class="wrap">
+    <div class="section-header">
+      <p class="section-tag reveal">Honest comparison</p>
+      <h2 class="reveal d1">CirkleUp vs <em class="on-dark">the rest</em></h2>
+    </div>
+    <div class="table-wrap reveal d1">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th class="col-feat">Feature</th>
+            <th class="col-us">CirkleUp</th>
+            <th>Instagram</th>
+            <th>TikTok</th>
+            <th>YouTube</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-feat">Algorithm-free feed</td>
+            <td class="col-us"><span class="ck">✓</span> Always</td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+          </tr>
+          <tr>
+            <td class="col-feat">Revenue share to creator</td>
+            <td class="col-us"><span class="ck">✓</span> 90%</td>
+            <td>~55%</td>
+            <td>~54%</td>
+            <td>~55%</td>
+          </tr>
+          <tr>
+            <td class="col-feat">Bot-free community</td>
+            <td class="col-us"><span class="ck">✓</span> Guaranteed</td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+          </tr>
+          <tr>
+            <td class="col-feat">You own your audience data</td>
+            <td class="col-us"><span class="ck">✓</span> Fully yours</td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+            <td>~ Limited</td>
+          </tr>
+          <tr>
+            <td class="col-feat">Invite-only quality control</td>
+            <td class="col-us"><span class="ck">✓</span> Built-in</td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+          </tr>
+          <tr>
+            <td class="col-feat">Native ticketed live events</td>
+            <td class="col-us"><span class="ck">✓</span> Native</td>
+            <td>~ Basic</td>
+            <td><span class="cx">✗</span></td>
+            <td>~ Basic</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════════ -->
+<section class="cta-section" id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <p class="cta-eyebrow reveal">Exclusive access</p>
+    <h2 class="reveal d1">Not everyone gets in.</h2>
+    <p class="reveal d2">We're building CirkleUp for creators who are serious about their craft and their community. Spots are limited. Every week a small batch opens up — and they go fast.</p>
+    <div class="cta-checks reveal d2">
+      <div class="cta-check"><div class="cta-dot">✓</div>Founding members get 5 invites</div>
+      <div class="cta-check"><div class="cta-dot">✓</div>Invites drop every Monday</div>
+      <div class="cta-check"><div class="cta-dot">✓</div>Founding spot locked in</div>
+    </div>
+    <div class="reveal d3">
+      <form class="cta-form" id="ctaForm" novalidate>
+        <label for="ctaEmail" class="sr-only">Email address</label>
+        <input
+          type="email" id="ctaEmail" name="email"
+          class="hero-input" placeholder="your@email.com"
+          autocomplete="email" required
+        />
+        <button type="submit" class="btn btn-primary btn-lg" id="ctaBtn">
+          Claim Your Invite <span class="arr">→</span>
+        </button>
+      </form>
+      <span class="input-err" id="ctaErr"></span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     INVESTOR & PARTNERSHIP CONTACT
+═══════════════════════════════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-inner reveal">
+      <div class="contact-left">
+        <p class="section-tag">Investors &amp; Partners</p>
+        <h2 class="contact-headline">For investment, sales or other<br>partnership opportunities,<br>please contact below.</h2>
+        <p class="contact-sub">CirkleUp is currently in private development. If you represent an investment firm, brand partnership, or enterprise sales opportunity, we'd like to hear from you.</p>
+      </div>
+      <div class="contact-right">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="contact-fields">
+            <div class="cfield">
+              <label for="cName" class="cfield-label">Full name</label>
+              <input type="text" id="cName" name="name" class="cinput" placeholder="Your name" autocomplete="name" required/>
+            </div>
+            <div class="cfield">
+              <label for="cOrg" class="cfield-label">Organisation</label>
+              <input type="text" id="cOrg" name="organisation" class="cinput" placeholder="Company / Fund" autocomplete="organization"/>
+            </div>
+            <div class="cfield">
+              <label for="cEmail" class="cfield-label">Email address</label>
+              <input type="email" id="cEmail" name="email" class="cinput" placeholder="you@company.com" autocomplete="email" required/>
+            </div>
+            <div class="cfield">
+              <label for="cType" class="cfield-label">Inquiry Type</label>
+              <select id="cType" name="type" class="cinput cselect">
+                <option value="" disabled selected>Select one</option>
+                <option value="investment">Investment</option>
+                <option value="sales">Sales / Enterprise</option>
+                <option value="partnership">Brand Partnership</option>
+                <option value="media">Press / Media</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="cfield cfield--full">
+              <label for="cMsg" class="cfield-label">
+                Message <span class="cfield-optional">(optional)</span>
+              </label>
+              <textarea id="cMsg" name="message" class="cinput ctextarea" placeholder="Brief overview of your inquiry…" rows="3"></textarea>
+            </div>
+          </div>
+          <span class="input-err" id="contactErr"></span>
+          <button type="submit" class="btn btn-primary btn-md contact-submit" id="contactBtn">
+            Send Inquiry <span class="arr">→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-bar">
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#">About</a>
+      <span class="footer-sep" aria-hidden="true">•</span>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p class="footer-copy">© 2026 CirkleUp. All rights reserved.</p>
   </div>
 </footer>
+
+
+<!-- ═══════════════════════════════════════════
+     SUCCESS MODAL
+═══════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div class="modal-ico">🎉</div>
+    <h2 id="modalTitle">You're on the list!</h2>
+    <p>We've added you to the CirkleUp waitlist. Invites drop every Monday — keep an eye on your inbox.</p>
+    <p class="modal-ref" id="modalRef"></p>
+    <button class="btn btn-primary btn-md" id="modalCloseBtn">
+      Got it — I'll watch my inbox <span class="arr">→</span>
+    </button>
+  </div>
+</div>
+
 
 <script src="js/main.js"></script>
 </body>
