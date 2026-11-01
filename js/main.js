@@ -173,3 +173,73 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+
+/* ═══════════════════════════════════════════
+   PRODUCT IMAGE OPTIONS
+   hover  → CSS swap (tap-to-flip on touch)
+   slider → arrows / dots / swipe
+   fade   → auto-advancing crossfade (pauses on hover, off-screen, hidden tab)
+   ═══════════════════════════════════════════ */
+(function () {
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const touch  = window.matchMedia && window.matchMedia('(hover: none)').matches;
+
+  /* 1) HOVER SWAP — tap on touch devices */
+  document.querySelectorAll('.pc-img[data-mode="hover"]').forEach(box => {
+    if (touch) box.addEventListener('click', e => {
+      if (e.target.closest('.pc-plus, .pc-sizes')) return;
+      box.classList.toggle('flip');
+    });
+  });
+
+  /* 2) SLIDESHOW */
+  document.querySelectorAll('.pc-img[data-mode="slider"]').forEach(box => {
+    const track = box.querySelector('.pc-track');
+    const n     = track.children.length;
+    const dots  = box.querySelectorAll('.pc-dots button');
+    let i = 0;
+    function go(k) {
+      i = (k + n) % n;
+      track.style.transform = 'translateX(' + (-100 * i) + '%)';
+      dots.forEach((d, j) => d.classList.toggle('on', j === i));
+    }
+    box.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); go(i - 1); });
+    box.querySelector('.next').addEventListener('click', e => { e.stopPropagation(); go(i + 1); });
+    dots.forEach((d, j) => d.addEventListener('click', e => { e.stopPropagation(); go(j); }));
+    /* swipe */
+    let sx = null;
+    box.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+    box.addEventListener('touchend', e => {
+      if (sx === null) return;
+      const dx = e.changedTouches[0].clientX - sx; sx = null;
+      if (Math.abs(dx) > 40) go(dx < 0 ? i + 1 : i - 1);
+    }, { passive: true });
+  });
+
+  /* 3) AUTO-FADE */
+  document.querySelectorAll('.pc-img[data-mode="fade"]').forEach((box, idx) => {
+    const imgs = box.querySelectorAll('.pc-stack img');
+    const dots = box.querySelectorAll('.pc-dots button');
+    const n = imgs.length;
+    let i = 0, hover = false, visible = true, timer = null;
+    function show(k) {
+      i = (k + n) % n;
+      imgs.forEach((im, j) => { im.style.opacity = (j === i) ? 1 : 0; });
+      dots.forEach((d, j) => d.classList.toggle('on', j === i));
+    }
+    dots.forEach((d, j) => d.addEventListener('click', e => { e.stopPropagation(); show(j); }));
+    box.addEventListener('mouseenter', () => { hover = true; });
+    box.addEventListener('mouseleave', () => { hover = false; });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(box);
+    }
+    if (reduce) return;                       /* respect reduced-motion: no autoplay */
+    /* stagger the cards so they don't all change at once */
+    setTimeout(() => {
+      timer = setInterval(() => {
+        if (hover || !visible || document.hidden) return;
+        show(i + 1);
+      }, 3200);
+    }, 900 + idx * 700);
+  });
+})();

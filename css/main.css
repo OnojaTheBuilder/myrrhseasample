@@ -870,3 +870,84 @@ body.page-contact #hdr .h-ham span { background: #161616 !important; }
   .ft-g { grid-template-columns: 1fr; }
   .prod-grid { grid-template-columns: 1fr; }
 }
+
+/* ═══════════════════════════════════════════
+   PRODUCT IMAGE OPTIONS — hover swap / slideshow / auto-fade
+   (each .pc-img carries data-mode="hover|slider|fade")
+   ═══════════════════════════════════════════ */
+.pc-img[data-mode] { background: #ece9e3; }
+.pc-img[data-mode] img { animation: none; }                       /* neutralise the load-in fade for stacked images */
+.pc-img[data-mode] .pc-stack img { opacity: 0; }
+.pc-img[data-mode] .pc-stack img:first-child { opacity: 1; }
+.pc-img[data-mode] .pc-track img { opacity: 1; }
+.pc-img .pc-plus, .pc-img .pc-sizes { z-index: 6; }
+
+/* Shared: stacked images (hover + fade) */
+.pc-stack { position: absolute; inset: 0; }
+.pc-stack img {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity .9s ease, transform .5s ease, filter .5s ease;
+}
+.pc-stack img:first-child { opacity: 1; }
+
+/* 1) HOVER SWAP — second image fades in on hover (tap on touch screens) */
+.pc-img[data-mode="hover"] .pc-stack img { transition: opacity .55s ease, transform .5s ease, filter .5s ease; }
+.pc:hover .pc-img[data-mode="hover"] .pc-stack img:nth-child(2),
+.pc-img[data-mode="hover"].flip .pc-stack img:nth-child(2) { opacity: 1; }
+.pc:hover .pc-img[data-mode="hover"] .pc-stack img:first-child,
+.pc-img[data-mode="hover"].flip .pc-stack img:first-child { opacity: 0; }
+
+/* 2) SLIDESHOW — arrows, dots, swipe */
+.pc-track {
+  position: absolute; inset: 0;
+  display: flex;
+  transition: transform .6s cubic-bezier(.65,0,.25,1);
+  will-change: transform;
+}
+.pc-track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.pc-img[data-mode="slider"] { touch-action: pan-y; }
+.pc-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,.92); color: #161616;
+  font-size: 22px; line-height: 1; padding-bottom: 3px;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .25s, background .2s, color .2s;
+  z-index: 4;
+}
+.pc-arrow.prev { left: .8rem; } .pc-arrow.next { right: .8rem; }
+.pc-arrow:hover { background: #161616; color: #fff; }
+.pc:hover .pc-arrow, .pc-arrow:focus-visible { opacity: 1; }
+
+/* Dots (slideshow + fade) — lift above the size strip while hovering */
+.pc-dots {
+  position: absolute; left: 0; right: 0; bottom: .9rem;
+  display: flex; justify-content: center; gap: 7px;
+  z-index: 4; transition: bottom .25s ease;
+}
+.pc:hover .pc-dots { bottom: 3.6rem; }
+.pc-dots button {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(22,22,22,.28); border: 1px solid rgba(255,255,255,.7);
+  padding: 0; transition: background .3s, transform .3s;
+}
+.pc-dots button.on { background: #161616; transform: scale(1.25); }
+
+/* Small label so the three behaviours are easy to tell apart in the review (delete this rule to hide) */
+.demo-tag {
+  position: absolute; top: .8rem; left: .8rem; z-index: 4;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase;
+  color: #161616; background: rgba(255,255,255,.88);
+  padding: 4px 8px; pointer-events: none;
+}
+
+/* Touch screens have no hover: keep arrows visible */
+@media (hover: none) {
+  .pc-arrow { opacity: .9; }
+  .pc-dots, .pc:hover .pc-dots { bottom: .9rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pc-stack img, .pc-track { transition: none; }
+}
