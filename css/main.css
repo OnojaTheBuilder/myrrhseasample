@@ -4,7 +4,7 @@
    ═══════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&display=swap');
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -258,6 +258,52 @@ body.page-contact #hdr .h-ham span { background: #161616 !important; }
   .hero img {
     min-height: 92dvh;
   }
+}
+
+/* Hero tagline — cream to match the cream in the MERCANTILE logo mark */
+.hero-tag {
+  position: absolute;
+  top: calc(114px + clamp(1.5rem, 4vw, 3.5rem)); /* clears fixed announcement bar + header */
+  left: clamp(1.25rem, 5vw, 4.5rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: #FCF8D0;
+  pointer-events: none;
+  max-width: calc(100% - 2.5rem);
+}
+.hero-tag-l1 {
+  font-weight: 500;
+  font-size: clamp(1.35rem, 2.6vw, 2.4rem);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-shadow: 0 1px 14px rgba(0,0,0,0.35);
+}
+/* "fashion forward" — faded, multicolour wash that melts into the sky,
+   echoing the painted lettering on the tops */
+.hero-tag-l2 {
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6.4vw, 6rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  margin-top: 0.15em;
+  padding-left: 0.6em;
+  background: linear-gradient(100deg,
+    #FCF8D0 0%, #FCF8D0 22%,
+    #E9B872 42%, #A9CFD3 62%,
+    #E8B9C0 80%, #FCF8D0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  opacity: 0.72;
+  -webkit-mask-image: linear-gradient(100deg, #000 35%, rgba(0,0,0,0.5) 100%);
+  mask-image: linear-gradient(100deg, #000 35%, rgba(0,0,0,0.5) 100%);
+}
+.hero-tag-l2 em { font-style: italic; font-weight: 300; }
+@media (max-width: 768px) {
+  .hero-tag-l2 { padding-left: 0.35em; opacity: 0.85; filter: drop-shadow(0 1px 10px rgba(0,0,0,0.25)); }
 }
 /* ═══════════════════════════════════════════
    PAGE HEADER — inner pages
